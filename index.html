@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melopal - Turn music lessons into practice</title>
+<meta name="description" content="Melopal gives music teachers one clean place to send sheet music, practice instructions and recordings - so students always know what to practice.">
+<meta property="og:title" content="Melopal - Turn music lessons into practice">
+<meta property="og:description" content="Sheet music, instructions and practice tasks for your one-to-one lessons, all in one place. Less clutter. More practice.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ======== icon symbols ======== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-tablet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M2 15h10"/><path d="m9 18 3-3-3-3"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></symbol>
+  </defs>
+</svg>
+
+<!-- ======== nav ======== -->
+<div class="nav-outer">
+  <nav class="nav sk sk-pluck" data-jitter="1.4" data-stroke="1.7" aria-label="Main">
+    <a class="brand" href="index.html">
+      <img class="logo-mark" src="assets/logo.png" alt="Melopal logo">
+      Melopal
+    </a>
+    <div class="links">
+      <a href="index.html#how">How it works</a>
+      <a href="ipad.html">iPad teachers</a>
+      <a href="students.html">For students</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a class="btn btn-ghost" style="padding:9px 16px" href="https://app.melopal.com" target="_blank" rel="noopener">Log in</a>
+    </div>
+    <a class="btn btn-lilac cta sk sk-pluck" data-jitter="1" data-stroke="1.6" href="https://app.melopal.com" target="_blank" rel="noopener">Try Melopal free</a>
+    <button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </nav>
+</div>
+
+<!-- ======== hero ======== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="microlabel"><span class="lilac">Teacher</span> ⇔ <span class="green">Student</span> workspace</span>
+      <h1>Your students always know what to&nbsp;practice.</h1>
+      <p class="lede">Melopal puts the sheet music, instructions and recordings from your one-to-one lessons in one clean place, before your student has even packed up their instrument. <strong>Less clutter. More practice.</strong></p>
+      <div class="device-strip" aria-label="Supported devices">
+        <span>iPhone / iPad</span>
+        <span>Android app in the making</span>
+        <span>Browser</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-lilac btn-lg sk sk-pluck" data-jitter="1.2" href="https://app.melopal.com" target="_blank" rel="noopener">Try Melopal free <svg><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+      </div>
+      <p class="hero-note"><span class="check">✓</span> Free during early access &nbsp;&nbsp;<span class="check">✓</span> Students join with a QR code - no email needed</p>
+    </div>
+
+    <div class="hero-stage">
+      <div class="anno-1">
+        <span class="scribble">you, 30 seconds after the lesson</span>
+        <svg class="anno-arrow" viewBox="0 0 26 36" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c5 7 4 17-1 27"/><path d="M13 30l-6-5.5"/><path d="M13 30l7.5-3.5"/></svg>
+      </div>
+
+      <!-- teacher: new assignment card (mirrors the real app modal) -->
+      <div class="teacher-card sk mock mock-card" data-double>
+        <div class="stack">
+          <div class="m-row" style="justify-content:space-between">
+            <span class="m-title">New assignment</span>
+            <span class="muted" style="font-weight:600">×</span>
+          </div>
+          <div>
+            <div class="m-label"><svg><use href="#i-users"/></svg> Student(s)</div>
+            <div class="m-field m-row"><span class="m-chip">Emma · Violin <span class="x">×</span></span></div>
+          </div>
+          <div>
+            <div class="m-label"><svg><use href="#i-file"/></svg> Lesson instructions</div>
+            <div class="m-field">Bars 1–16 slowly with the metronome at 60. Relaxed bow arm in the string crossings. Listen to the recording first.</div>
+          </div>
+          <div>
+            <div class="m-label"><svg><use href="#i-music"/></svg> Sheet music</div>
+            <div class="m-file"><svg><use href="#i-file"/></svg><div><strong>Gavotte - F.&thinsp;J. Gossec</strong><div class="meta">PDF · 2 pages · your annotations</div></div></div>
+          </div>
+          <div>
+            <div class="m-label"><svg><use href="#i-link"/></svg> Media link</div>
+            <div class="m-media"><span class="thumb"><svg><use href="#i-play"/></svg></span><div><strong>Reference recording</strong><div class="meta" style="font-size:.85em;color:var(--slate)">YouTube · 2:41</div></div></div>
+          </div>
+          <div class="m-btn lilac wide">Create assignment <svg><use href="#i-arrow-right"/></svg></div>
+        </div>
+      </div>
+
+      <!-- student phone -->
+      <div class="phone sk mock" data-jitter="1.6">
+        <div class="phone-bar"></div>
+        <div class="m-row" style="justify-content:space-between;margin-bottom:10px">
+          <div class="m-row"><span class="m-avatar">EL</span><strong>Hi Emma 👋</strong></div>
+          <span class="pill pill-green"><span class="dot"></span>New</span>
+        </div>
+        <div class="m-note" style="margin-bottom:10px;font-size:.88em">
+          <div class="who">From Anders</div>
+          Bars 1–16 slowly, metronome at 60. 🎻
+        </div>
+        <div class="m-sheet" style="margin-bottom:12px"><img src="assets/sheet-music.png" alt="Assigned sheet music in the Melopal viewer" width="730" height="505"></div>
+        <div class="m-btn green wide">Open and practice</div>
+      </div>
+
+      <div class="anno-2">
+        <span class="scribble">your student, the same evening</span>
+        <svg class="anno-arrow" viewBox="0 0 26 36" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c5 7 4 17-1 27"/><path d="M13 30l-6-5.5"/><path d="M13 30l7.5-3.5"/></svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ======== the problem ======== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="microlabel">The weekly chaos</span>
+      <h2>“What was Emma supposed to practice?”</h2>
+      <h3>Text from a parent, Wednesday, 19:42. </h3>
+      <p>The piece is somewhere. Maybe in an email. Maybe in WhatsApp. Maybe in that Dropbox folder from three years ago. You know you sent it, but nobody can find it, so you take another photo and send it again.</p>
+      <p class="mt-16">Every one-to-one music teacher knows this routine. Not because teachers are disorganized, but because the tools they use were never built for teaching an instrument.</p>
+    </div>
+
+    <div class="chaos-grid">
+      <div class="chaos-pile reveal">
+        <div class="chaos-item"><svg><use href="#i-message"/></svg><div><div class="from">WhatsApp · Tue 21:14</div>Sorry to bother you! Which piece was Emma doing again? 🙈</div></div>
+        <div class="chaos-item"><svg><use href="#i-mail"/></svg><div><div class="from">Email</div>RE: RE: FW: scan_0034_final_v2.pdf</div></div>
+        <div class="chaos-item"><svg><use href="#i-folder"/></svg><div><div class="from">Cloud folder</div>“Emma violin stuff” · 142 files · last opened months ago</div></div>
+        <div class="chaos-item"><svg><use href="#i-paper"/></svg><div><div class="from">Practice notebook</div>Left on the piano at home. Again.</div></div>
+      </div>
+
+      <svg class="chaos-arrow reveal" viewBox="0 0 54 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 27h38m0 0-9-9m9 9-9 9"/></svg>
+
+      <div class="reveal">
+        <div class="sk mock mock-card" data-double>
+          <div class="stack">
+            <div class="m-row" style="justify-content:space-between">
+              <strong style="font-size:1.1em">This week’s practice</strong>
+              <span class="pill pill-green"><span class="dot"></span>Active</span>
+            </div>
+            <div class="m-note">
+              <div class="who">From Anders</div>
+              Bars 1–16 slowly, metronome at 60. Relaxed bow arm in the crossings.
+            </div>
+            <div class="m-file"><svg><use href="#i-file"/></svg><div><strong>Gavotte - Gossec</strong><div class="meta">Sheet music · attached</div></div></div>
+            <div class="m-media"><span class="thumb"><svg><use href="#i-play"/></svg></span><div style="font-size:.95em"><strong>Reference recording</strong></div></div>
+          </div>
+        </div>
+        <p class="muted small center mt-16">Everything for this week. One place. No digging.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="staff-divider" viewBox="0 0 420 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+  <path d="M10 10c70-2.5 140 2 200 1s130-2 200-.5"/>
+  <path d="M10 17c70 2 140-1.5 200-1s130 2 200 .5"/>
+  <path d="M10 24c70-1.5 140 1.5 200 1s130-1.5 200-1"/>
+  <path d="M10 31c70 2.5 140-2 200-1s130 1.5 200 1"/>
+  <path d="M10 38c70-2 140 1 200 .5s130-1 200-.5"/>
+  <g class="sd-note" data-x="105" data-y="34.5" style="transform:translate(105px,34.5px)" stroke="var(--lilac)" fill="var(--lilac)"><ellipse rx="5" ry="3.6" transform="rotate(-18)"/><path class="stem stem-up on" d="M4.5 -1.5V-21" stroke-width="1.6" fill="none"/><path class="stem stem-down" d="M-4.5 1.5V19" stroke-width="1.6" fill="none"/></g>
+  <g class="sd-note" data-x="190" data-y="27.5" style="transform:translate(190px,27.5px)" stroke="var(--green)" fill="var(--green)"><ellipse rx="5" ry="3.6" transform="rotate(-18)"/><path class="stem stem-up on" d="M4.5 -1.5V-21" stroke-width="1.6" fill="none"/><path class="stem stem-down" d="M-4.5 1.5V19" stroke-width="1.6" fill="none"/></g>
+  <g class="sd-note" data-x="275" data-y="20.5" style="transform:translate(275px,20.5px)" stroke="var(--lilac)" fill="var(--lilac)"><ellipse rx="5" ry="3.6" transform="rotate(-18)"/><path class="stem stem-up" d="M4.5 -1.5V-21" stroke-width="1.6" fill="none"/><path class="stem stem-down on" d="M-4.5 1.5V19" stroke-width="1.6" fill="none"/></g>
+  <g class="sd-note" data-x="360" data-y="13.5" style="transform:translate(360px,13.5px)" stroke="var(--green)" fill="var(--green)"><ellipse rx="5" ry="3.6" transform="rotate(-18)"/><path class="stem stem-up" d="M4.5 -1.5V-21" stroke-width="1.6" fill="none"/><path class="stem stem-down on" d="M-4.5 1.5V19" stroke-width="1.6" fill="none"/></g>
+</svg>
+
+<!-- ======== how it works ======== -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="microlabel">How Melopal works</span>
+      <h2>From your library to your students music stand in three steps.</h2>
+      <p>No setup marathon. Start next week's lesson where this week's ended. Send your first assignment before your next lesson.</p>
+    </div>
+
+    <div class="steps">
+      <!-- step 1 -->
+      <div class="step reveal">
+        <div class="step-copy">
+          <span class="step-num">1</span>
+          <h3>Build your library once. Use it every lesson.</h3>
+          <p>Bring the music you already use. Scan with your phone, upload PDFs, or import your entire forScore library in one go.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Scan with the camera in the iOS &amp; Android apps (Android app in the making)</li>
+            <li><svg><use href="#i-check"/></svg>Upload PDFs from anywhere - drag in the whole folder</li>
+            <li><svg><use href="#i-check"/></svg>Import forScore files and keep your organisation</li>
+            <li><svg><use href="#i-check"/></svg>Find anything by title, composer or tags</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="sk mock mock-card" data-double>
+            <div class="stack">
+              <div><span class="m-title">Add Music</span><div class="muted" style="font-size:.95em">Upload PDFs to your Melopal music library.</div></div>
+              <div class="m-btn wide"><svg><use href="#i-camera"/></svg> Scan with Camera</div>
+              <div class="m-btn lilac wide"><svg><use href="#i-upload"/></svg> Upload PDFs</div>
+              <div class="m-btn lilac wide"><svg><use href="#i-package"/></svg> Import forScore files</div>
+              <p class="muted center" style="font-size:.85em">Using another music app? Export the PDF and drop it here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- step 2 -->
+      <div class="step reveal">
+        <div class="step-copy">
+          <span class="step-num">2</span>
+          <h3>Assign in the last minute of the lesson.</h3>
+          <p>Pick the student, write what to practice, attach the piece. Add a YouTube or Spotify reference, or record a 20-second voice note while the lesson is still fresh. Your student can pack up while you do it.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Assign to one student or a whole group at once</li>
+            <li><svg><use href="#i-check"/></svg>Voice notes up to 5 minutes - faster than typing</li>
+            <li><svg><use href="#i-check"/></svg>YouTube, Spotify and SoundCloud links attached to the task</li>
+            <li><svg><use href="#i-check"/></svg>Share your annotated copy or the clean original</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="sk mock mock-card" data-double>
+            <div class="stack">
+              <span class="m-title">New assignment</span>
+              <div>
+                <div class="m-label"><svg><use href="#i-users"/></svg> Student(s)</div>
+                <div class="m-field m-row" style="flex-wrap:wrap;gap:7px"><span class="m-chip">Emma · Violin <span class="x">×</span></span><span class="m-chip">Jonas · Viola <span class="x">×</span></span></div>
+              </div>
+              <div>
+                <div class="m-label"><svg><use href="#i-file"/></svg> Lesson instructions</div>
+                <div class="m-field">Duet for next week’s group lesson - count the rests out loud!</div>
+              </div>
+              <div>
+                <div class="m-label"><svg><use href="#i-mic"/></svg> Audio note</div>
+                <div class="m-field m-row" style="justify-content:space-between"><span class="muted">0:23 - “…and keep the up-bows light…”</span><svg style="width:16px;height:16px;color:var(--lilac)"><use href="#i-play"/></svg></div>
+              </div>
+              <div class="m-btn lilac wide">Create assignment <svg><use href="#i-arrow-right"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- step 3 -->
+      <div class="step reveal">
+        <div class="step-copy">
+          <span class="step-num">3</span>
+          <h3>Your student opens one place. Not seven.</h3>
+          <p>Students join by scanning a QR code in the lesson - the youngest don’t even need an email address. From then on, every assignment lands in their Melopal: the music, your notes, the recordings. Parents can stop doing archaeology in the chat history.</p>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>QR or link invite - joining takes seconds</li>
+            <li><svg><use href="#i-check"/></svg>Works on phone, tablet and computer</li>
+            <li><svg><use href="#i-check"/></svg>Status moves New → In progress → Completed</li>
+            <li><svg><use href="#i-check"/></svg>You always see what’s active for every student</li>
+          </ul>
+        </div>
+        <div class="step-visual">
+          <div class="sk mock mock-card" data-double>
+            <div class="stack center">
+              <div><span class="m-title">Share invite</span><div class="muted" style="font-size:.95em">Emma’s account is ready - share this so she can sign in on her device.</div></div>
+              <div class="m-qr">
+                <svg viewBox="0 0 56 56" fill="var(--ink)"><rect x="2" y="2" width="14" height="14" rx="2" fill="none" stroke="var(--ink)" stroke-width="3"/><rect x="6" y="6" width="6" height="6"/><rect x="40" y="2" width="14" height="14" rx="2" fill="none" stroke="var(--ink)" stroke-width="3"/><rect x="44" y="6" width="6" height="6"/><rect x="2" y="40" width="14" height="14" rx="2" fill="none" stroke="var(--ink)" stroke-width="3"/><rect x="6" y="44" width="6" height="6"/><rect x="22" y="4" width="4" height="4"/><rect x="30" y="2" width="4" height="4"/><rect x="24" y="12" width="4" height="4"/><rect x="32" y="10" width="6" height="4"/><rect x="22" y="22" width="6" height="6"/><rect x="32" y="24" width="4" height="4"/><rect x="42" y="22" width="4" height="4"/><rect x="50" y="24" width="4" height="4"/><rect x="44" y="30" width="6" height="4"/><rect x="4" y="24" width="4" height="4"/><rect x="12" y="22" width="4" height="6"/><rect x="2" y="32" width="4" height="4"/><rect x="10" y="32" width="6" height="4"/><rect x="22" y="32" width="4" height="6"/><rect x="30" y="34" width="6" height="6"/><rect x="40" y="40" width="6" height="6"/><rect x="50" y="38" width="4" height="4"/><rect x="22" y="44" width="4" height="4"/><rect x="30" y="46" width="6" height="4"/><rect x="48" y="48" width="6" height="6"/><rect x="40" y="50" width="4" height="4"/></svg>
+              </div>
+              <div class="m-field placeholder" style="font-size:.85em;text-align:left"><span style="display:block;font-size:9px;font-weight:700;letter-spacing:1px;color:var(--slate)">INVITE LINK</span>melopal.app/invite/emma…</div>
+              <div class="m-row" style="gap:10px">
+                <div class="m-btn lilac" style="flex:1"><svg><use href="#i-copy"/></svg> Copy link</div>
+                <div class="m-btn lilac" style="flex:1"><svg><use href="#i-mail"/></svg> Send email</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== outcomes ======== -->
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="microlabel">What changes</span>
+      <h2>By week two, lessons start on the music - not on logistics.</h2>
+    </div>
+    <div class="outcomes">
+      <div class="outcome sk reveal"><div class="big">0</div><h4>Lost sheet music</h4><p>If it’s assigned, it’s on their device. “I forgot the music at home” quietly retires.</p></div>
+      <div class="outcome sk reveal"><div class="big">30s</div><h4>To send an assignment</h4><p>Less admin than the WhatsApp message you’re typing today - and it doesn’t scroll away.</p></div>
+      <div class="outcome sk reveal"><div class="big">1</div><h4>Place students look</h4><p>Music, instructions, voice notes and references stay connected to each other.</p></div>
+      <div class="outcome sk reveal"><div class="big">1 or 50</div><h4>Your students, organized</h4><p>See what each student has been assigned, what’s new, and what’s done. No spreadsheet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== the practice loop ======== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="microlabel">The practice loop</span>
+      <h2>A week in the life of one assignment.</h2>
+    </div>
+    <div class="loop-grid">
+      <div class="loop-card sk reveal">
+        <div class="when"><svg style="width:14px;height:14px"><use href="#i-clock"/></svg> Tuesday · in the lesson</div>
+        <h4>You assign the Gavotte</h4>
+        <p>PDF attached, two lines of instructions, a reference recording. Emma scans the QR. Done before she’s packed her case.</p>
+        <span class="pill pill-green"><span class="dot"></span>New</span>
+      </div>
+      <div class="loop-card sk reveal">
+        <div class="when"><svg style="width:14px;height:14px"><use href="#i-music"/></svg> Wednesday–Sunday · at home</div>
+        <h4>Emma practices from one screen</h4>
+        <p>The music is right there, your note next to it, the recording one tap away. No “mum, where’s the file?”</p>
+        <span class="pill pill-lilac-soft"><span class="dot"></span>In progress</span>
+      </div>
+      <div class="loop-card sk reveal">
+        <div class="when"><svg style="width:14px;height:14px"><use href="#i-refresh"/></svg> Next Tuesday · in the lesson</div>
+        <h4>You both know where you left off</h4>
+        <p>Open Emma’s page: what was assigned, what’s active, what’s done. The lesson starts where it matters.</p>
+        <span class="pill pill-green"><svg style="width:11px;height:11px"><use href="#i-check"/></svg>Completed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== iPad / forScore band ======== -->
+<section>
+  <div class="wrap">
+    <div class="band lilac-band sk reveal" data-double>
+      <div class="band-grid">
+        <div>
+          <span class="microlabel"><span class="lilac">For iPad teachers</span></span>
+          <h2>Your iPad is brilliant on a music stand. Give your students the same experience.</h2>
+          <p>You’ve spent years organising a beautiful forScore library for <em>your</em> music stand. Melopal lets you turn any piece into an assignment in seconds, delivered to students with your instructions attached.</p>
+          <ul>
+            <li><svg><use href="#i-package"/></svg><span><strong>Import forScore files directly.</strong> Your scores and setlists come across - no exporting one PDF at a time.</span></li>
+            <li><svg><use href="#i-camera"/></svg><span><strong>Scan paper in seconds.</strong> Method book page, exam piece, your own exercise - straight into the library.</span></li>
+            <li><svg><use href="#i-pencil"/></svg><span><strong>Annotations, your call.</strong> Send your marked-up copy or the clean original, per assignment.</span></li>
+          </ul>
+          <a class="btn btn-lilac sk sk-pluck" data-jitter="1" href="ipad.html">More on iPad &amp; forScore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+        <div>
+          <div class="sk mock mock-card">
+            <div class="stack">
+              <span class="m-title" style="font-size:1.1em">Import forScore files</span>
+              <div class="m-file"><svg><use href="#i-package"/></svg><div><strong>Suzuki Book 2 (annotated).4ss</strong><div class="meta">38 scores · imported ✓</div></div></div>
+              <div class="m-file"><svg><use href="#i-package"/></svg><div><strong>Spring recital setlist</strong><div class="meta">12 scores · imported ✓</div></div></div>
+              <div class="m-file"><svg><use href="#i-file"/></svg><div><strong>Scale sheets 2024.pdf</strong><div class="meta">uploading…</div></div></div>
+              <p class="muted" style="font-size:.85em">Titles, composers and setlists become searchable collections.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== students band ======== -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band green-band sk reveal" data-double>
+      <div class="band-grid">
+        <div>
+          <span class="microlabel"><span class="green">For your students</span></span>
+          <h2>Students don’t get another homework app. They get a music stand in their pocket.</h2>
+          <p>No distractions, no clutter, no noise - just this week’s music, and your instructions to go with it.</p>
+          <ul>
+            <li><svg><use href="#i-check-circle"/></svg><span>One clear list of what to practice right now</span></li>
+            <li><svg><use href="#i-check-circle"/></svg><span>Your instructions attached to the piece - not in a separate chat</span></li>
+            <li><svg><use href="#i-check-circle"/></svg><span>Reference recordings one tap away</span></li>
+            <li><svg><use href="#i-check-circle"/></svg><span>Joins with a QR code · parents welcome to look over the shoulder</span></li>
+          </ul>
+          <a class="btn btn-green sk sk-pluck" data-jitter="1" href="students.html">See the student side <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+        <div style="display:flex;justify-content:center">
+          <div class="phone sk mock" data-jitter="1.6">
+            <div class="phone-bar"></div>
+            <div class="m-row" style="justify-content:space-between;margin-bottom:12px">
+              <strong>My assignments</strong>
+              <span class="m-avatar">EL</span>
+            </div>
+            <div class="m-file" style="margin-bottom:10px"><svg><use href="#i-music"/></svg><div style="flex:1"><strong>Gavotte - Gossec</strong><div class="meta">Bars 1–16 · metronome 60</div></div><span class="pill pill-green" style="font-size:9px"><span class="dot"></span>New</span></div>
+            <div class="m-file" style="margin-bottom:10px"><svg><use href="#i-music"/></svg><div style="flex:1"><strong>D major scale</strong><div class="meta">2 octaves · slurred</div></div><span class="pill pill-slate" style="font-size:9px">In progress</span></div>
+            <div class="m-file" style="margin-bottom:14px;opacity:.65"><svg><use href="#i-check-circle"/></svg><div style="flex:1"><strong>Etude No. 4</strong><div class="meta">Completed last week</div></div></div>
+            <div class="m-btn green wide">Start practicing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FAQ teaser ======== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="microlabel">Fair questions</span>
+      <h2>You’re skeptical. Good - you’re a teacher.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item sk reveal">
+        <summary>Why not just keep using WhatsApp, email and Drive?<svg class="chev"><use href="#i-chevron-down"/></svg></summary>
+        <div class="faq-body"><p>Because it's cluttered and messy. A chat scrolls away, a folder grows crowded, and nothing connects them. Melopal keeps the piece, the instructions and the references together for each student. That is the missing connection.</p></div>
+      </details>
+      <details class="faq-item sk reveal">
+        <summary>Will my students really open another app?<svg class="chev"><use href="#i-chevron-down"/></svg></summary>
+        <div class="faq-body"><p>They open the app where their music lives - that’s a different thing than “another app.” Joining is a QR scan in your lesson, no email needed for young students, and afterwards it’s the only place they have to remember.</p></div>
+      </details>
+      <details class="faq-item sk reveal">
+        <summary>Is this more admin for me?<svg class="chev"><use href="#i-chevron-down"/></svg></summary>
+        <div class="faq-body"><p>An assignment takes about 30 seconds - pick student, two lines, attach. That usually replaces an email, a chat message, and the “what was it again?” follow-ups. You send it once. Your student always knows where to find it.</p></div>
+      </details>
+    </div>
+    <p class="center mt-32 reveal"><a class="btn btn-ghost" href="faq.html">All questions answered - copyright, GDPR, devices <svg><use href="#i-arrow-right"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ======== final CTA ======== -->
+<section style="padding-top:12px">
+  <div class="wrap">
+    <div class="cta-band sk reveal" data-double>
+      <span class="pill pill-lilac">Free during early access</span>
+      <h2>Turn lessons into practice.</h2>
+      <p>Stop sending sheet music and assignments through random messages and folders. Melopal gives each student one clear place to practice from.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-lilac btn-lg sk sk-pluck" data-jitter="1.2" href="https://app.melopal.com" target="_blank" rel="noopener">Try Melopal free <svg><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html">What will it cost?</a>
+      </div>
+      <p class="hero-note cta-note"><span class="check">✓</span> Students and parents: always free</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== footer ======== -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand"><img class="logo-mark" src="assets/logo.png" alt="Melopal logo"> Melopal</div>
+      <p class="muted small mt-8" style="max-width:26em">Built for music teachers by a music teacher who got tired of sending sheet music into the void.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="index.html#how">How it works</a>
+      <a href="ipad.html">iPad teachers</a>
+      <a href="students.html">For students</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="https://app.melopal.com" target="_blank" rel="noopener">Open the app</a>
+      <a href="mailto:andersmusiker@gmail.com">Contact</a>
+    </nav>
+    <div class="legal">
+      <span>© <span data-year>2026</span> Melopal</span>
+      <span>Sheet music belongs on the stand. Not buried in your chat history.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/melopal.js"></script>
+</body>
+</html>
