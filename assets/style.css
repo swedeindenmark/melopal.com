@@ -837,6 +837,24 @@ footer { padding: 56px 0 40px; }
 .compare .yes { color: var(--green); font-weight: 700; }
 .compare .meh { color: var(--slate-light); }
 
+/* ---------- legal pages ---------- */
+.legal-page {
+  max-width: 820px;
+  margin: 0 auto;
+  color: var(--slate);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.legal-page h2 {
+  margin: 2.1rem 0 0.7rem;
+  color: var(--ink);
+  font-size: 1.35rem;
+}
+.legal-page p { margin: 0 0 1rem; }
+.legal-page ul { margin: 0 0 1.2rem; padding-left: 1.3rem; }
+.legal-page li + li { margin-top: 0.35rem; }
+.legal-page a { color: var(--ink); font-weight: 600; }
+
 /* utility */
 .mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; }
 .mt-32 { margin-top: 32px; } .mt-48 { margin-top: 48px; }
