@@ -17,7 +17,7 @@
   // Paste the App Store URL here when you want iOS visitors routed there.
   // Non-iOS visitors always open the web app.
   var IOS_APP_URL = "";
-  var CONTACT = "mailto:andersmusiker@gmail.com";
+  var CONTACT = "/contact";
   var NAV_LINKS = [
     { href: "/#how", label: "How it works" },
     { href: "/ipad", label: "iPad teachers" },
@@ -458,6 +458,38 @@
     });
   }
 
+  function setupContactForm() {
+    var form = document.querySelector("[data-contact-form]");
+    if (!form) return;
+
+    var status = document.querySelector("[data-contact-status]");
+    var button = form.querySelector("button[type='submit']");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (status) status.textContent = "Sending...";
+      if (button) button.disabled = true;
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      }).then(function (response) {
+        return response.json().catch(function () {
+          return { ok: false, error: "Could not send the message right now." };
+        }).then(function (body) {
+          if (!response.ok || !body.ok) throw new Error(body.error || "Could not send the message right now.");
+          form.reset();
+          if (status) status.textContent = "Message sent. Thank you.";
+        });
+      }).catch(function (error) {
+        if (status) status.textContent = error.message || "Could not send the message right now.";
+      }).finally(function () {
+        if (button) button.disabled = false;
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     normalizeAppLinks();
     drawAll();
@@ -471,6 +503,7 @@
     setupNav();
     setupPricingCurrency();
     setupTeacherShare();
+    setupContactForm();
     var y = document.querySelector("[data-year]");
     if (y) y.textContent = new Date().getFullYear();
   });

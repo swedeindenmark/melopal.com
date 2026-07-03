@@ -50,6 +50,7 @@ npx vercel deploy
 - **CTA target:** all "Try Melopal free" / "Log in" buttons point to
   `https://app.melopal.com`. `assets/melopal.js` has an `IOS_APP_URL` placeholder
   for the App Store link.
-- **Contact email:** footer + FAQ link to `andersmusiker@gmail.com`.
+- **Contact form:** `/contact` posts to `/api/contact`. Configure `RESEND_API_KEY`,
+  `CONTACT_TO`, and `CONTACT_FROM` in Cloudflare Pages environment variables.
 - **Pricing copy:** `pricing.html` promises "students never pay" and a future simple
   teacher plan - adjust when real pricing is decided.
