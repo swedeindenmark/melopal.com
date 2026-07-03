@@ -5,15 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Melopal - Turn music lessons into practice</title>
 <meta name="description" content="Melopal gives music teachers one clean place to send sheet music, practice instructions and recordings - so students always know what to practice.">
+<link rel="canonical" href="https://melopal.com/">
 <meta property="og:title" content="Melopal - Turn music lessons into practice">
 <meta property="og:description" content="Sheet music, instructions and practice tasks for your one-to-one lessons, all in one place. Less clutter. More practice.">
-<meta property="og:image" content="assets/logo.png">
+<meta property="og:url" content="https://melopal.com/">
+<meta property="og:image" content="https://melopal.com/assets/og-melopal.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Melopal - Turn music lessons into practice">
+<meta name="twitter:description" content="Sheet music, instructions and practice tasks for your one-to-one lessons, all in one place. Less clutter. More practice.">
+<meta name="twitter:image" content="https://melopal.com/assets/og-melopal.png">
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://melopal.com/#organization",
+      "name": "Melopal",
+      "url": "https://melopal.com/",
+      "logo": "https://melopal.com/assets/logo.png",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://melopal.com/#website",
+      "url": "https://melopal.com/",
+      "name": "Melopal",
+      "publisher": { "@id": "https://melopal.com/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://melopal.com/#software",
+      "name": "Melopal",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web, iOS",
+      "url": "https://melopal.com/",
+      "description": "Melopal gives music teachers one clean place to send sheet music, practice instructions and recordings to students.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": { "@id": "https://melopal.com/#organization" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -51,16 +98,16 @@
 <!-- ======== nav ======== -->
 <div class="nav-outer">
   <nav class="nav sk sk-pluck" data-jitter="1.4" data-stroke="1.7" aria-label="Main">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/">
       <img class="logo-mark" src="assets/logo.png" alt="Melopal logo">
       Melopal
     </a>
     <div class="links">
-      <a href="index.html#how">How it works</a>
-      <a href="ipad.html">iPad teachers</a>
-      <a href="students.html">For students</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="faq.html">FAQ</a>
+      <a href="/#how">How it works</a>
+      <a href="/ipad">iPad teachers</a>
+      <a href="/students">For students</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/faq">FAQ</a>
       <a class="btn btn-ghost" style="padding:9px 16px" href="https://app.melopal.com" target="_blank" rel="noopener">Log in</a>
     </div>
     <a class="btn btn-lilac cta sk sk-pluck" data-jitter="1" data-stroke="1.6" href="https://app.melopal.com" target="_blank" rel="noopener">Try Melopal free</a>
@@ -361,7 +408,7 @@
             <li><svg><use href="#i-camera"/></svg><span><strong>Scan paper in seconds.</strong> Method book page, exam piece, your own exercise - straight into the library.</span></li>
             <li><svg><use href="#i-pencil"/></svg><span><strong>Annotations, your call.</strong> Send your marked-up copy or the clean original, per assignment.</span></li>
           </ul>
-          <a class="btn btn-lilac sk sk-pluck" data-jitter="1" href="ipad.html">More on iPad &amp; forScore <svg><use href="#i-arrow-right"/></svg></a>
+          <a class="btn btn-lilac sk sk-pluck" data-jitter="1" href="/ipad">More on iPad &amp; forScore <svg><use href="#i-arrow-right"/></svg></a>
         </div>
         <div>
           <div class="sk mock mock-card">
@@ -394,7 +441,7 @@
             <li><svg><use href="#i-check-circle"/></svg><span>Reference recordings one tap away</span></li>
             <li><svg><use href="#i-check-circle"/></svg><span>Joins with a QR code · parents welcome to look over the shoulder</span></li>
           </ul>
-          <a class="btn btn-green sk sk-pluck" data-jitter="1" href="students.html">See the student side <svg><use href="#i-arrow-right"/></svg></a>
+          <a class="btn btn-green sk sk-pluck" data-jitter="1" href="/students">See the student side <svg><use href="#i-arrow-right"/></svg></a>
         </div>
         <div style="display:flex;justify-content:center">
           <div class="phone sk mock" data-jitter="1.6">
@@ -435,7 +482,7 @@
         <div class="faq-body"><p>An assignment takes about 30 seconds - pick student, two lines, attach. That usually replaces an email, a chat message, and the “what was it again?” follow-ups. You send it once. Your student always knows where to find it.</p></div>
       </details>
     </div>
-    <p class="center mt-32 reveal"><a class="btn btn-ghost" href="faq.html">All questions answered - copyright, GDPR, devices <svg><use href="#i-arrow-right"/></svg></a></p>
+    <p class="center mt-32 reveal"><a class="btn btn-ghost" href="/faq">All questions answered - copyright, GDPR, devices <svg><use href="#i-arrow-right"/></svg></a></p>
   </div>
 </section>
 
@@ -448,7 +495,7 @@
       <p>Stop sharing sheet music and assignments through chats, email and folders. Melopal gives each student one clear place to practice from.</p>
       <div class="hero-ctas">
         <a class="btn btn-lilac btn-lg sk sk-pluck" data-jitter="1.2" href="https://app.melopal.com" target="_blank" rel="noopener">Try Melopal free <svg><use href="#i-arrow-right"/></svg></a>
-        <a class="btn btn-ghost btn-lg" href="pricing.html">What will it cost?</a>
+        <a class="btn btn-ghost btn-lg" href="/pricing">What will it cost?</a>
       </div>
       <p class="hero-note cta-note"><span class="check">✓</span> Students and parents: always free</p>
     </div>
@@ -463,13 +510,13 @@
       <p class="muted small mt-8" style="max-width:26em">Built for music teachers by a music teacher who got tired of sending sheet music into the void.</p>
     </div>
     <nav aria-label="Footer">
-      <a href="index.html#how">How it works</a>
-      <a href="ipad.html">iPad teachers</a>
-      <a href="students.html">For students</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="faq.html">FAQ</a>
+      <a href="/#how">How it works</a>
+      <a href="/ipad">iPad teachers</a>
+      <a href="/students">For students</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/faq">FAQ</a>
       <a href="https://app.melopal.com" target="_blank" rel="noopener">Open the app</a>
-      <a href="privacy-policy/">Privacy Policy</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
       <a href="mailto:andersmusiker@gmail.com">Contact</a>
     </nav>
     <div class="legal">

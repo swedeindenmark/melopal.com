@@ -19,11 +19,11 @@
   var IOS_APP_URL = "";
   var CONTACT = "mailto:andersmusiker@gmail.com";
   var NAV_LINKS = [
-    { href: "index.html#how", label: "How it works" },
-    { href: "ipad.html", label: "iPad teachers" },
-    { href: "students.html", label: "For students" },
-    { href: "pricing.html", label: "Pricing" },
-    { href: "faq.html", label: "FAQ" }
+    { href: "/#how", label: "How it works" },
+    { href: "/ipad", label: "iPad teachers" },
+    { href: "/students", label: "For students" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/faq", label: "FAQ" }
   ];
 
   function currentPage() {
@@ -41,8 +41,8 @@
 
   function navLinksHTML(page) {
     return NAV_LINKS.map(function (l) {
-      var active = l.href.split("#")[0] === page && l.href.indexOf("#") === -1;
-      var activeClass = l.href === "students.html" ? "active active-green" : "active";
+      var active = l.href.replace(/^\//, "") === page && l.href.indexOf("#") === -1;
+      var activeClass = l.href === "/students" ? "active active-green" : "active";
       return '<a href="' + l.href + '"' + (active ? ' class="' + activeClass + '"' : '') + '>' + l.label + '</a>';
     }).join("\n      ");
   }
@@ -53,7 +53,7 @@
       header.outerHTML =
         '<div class="nav-outer">' +
         '<nav class="nav sk" data-jitter="1.4" data-stroke="1.7" aria-label="Main">' +
-        '<a class="brand" href="index.html"><img class="logo-mark" src="assets/logo.png" alt="Melopal logo"> Melopal</a>' +
+        '<a class="brand" href="/"><img class="logo-mark" src="assets/logo.png" alt="Melopal logo"> Melopal</a>' +
         '<div class="links">' +
         navLinksHTML(currentPage()) +
         '<a class="btn btn-ghost" style="padding:9px 16px" href="' + appUrl() + '" target="_blank" rel="noopener">Log in</a>' +
@@ -73,12 +73,13 @@
         '<p class="muted small mt-8" style="max-width:26em">Built for music teachers by a music teacher who got tired of sending sheet music into the void.</p>' +
         '</div>' +
         '<nav aria-label="Footer">' +
-        '<a href="index.html#how">How it works</a>' +
-        '<a href="ipad.html">iPad teachers</a>' +
-        '<a href="students.html">For students</a>' +
-        '<a href="pricing.html">Pricing</a>' +
-        '<a href="faq.html">FAQ</a>' +
+        '<a href="/#how">How it works</a>' +
+        '<a href="/ipad">iPad teachers</a>' +
+        '<a href="/students">For students</a>' +
+        '<a href="/pricing">Pricing</a>' +
+        '<a href="/faq">FAQ</a>' +
         '<a href="' + appUrl() + '" target="_blank" rel="noopener">Open the app</a>' +
+        '<a href="/privacy-policy/">Privacy Policy</a>' +
         '<a href="' + CONTACT + '">Contact</a>' +
         '</nav>' +
         '<div class="legal">' +
