@@ -284,8 +284,8 @@
     if (el.tagName === "DETAILS" && !el.dataset.inkToggle) {
       el.dataset.inkToggle = "1";
       el.addEventListener("toggle", function () {
-        requestAnimationFrame(drawAll);
-        setTimeout(drawAll, 90);
+        queueInkRedraw();
+        setTimeout(drawAll, 180);
       });
     }
 
@@ -333,6 +333,38 @@
 
   function drawAll() {
     document.querySelectorAll(".sk").forEach(drawInk);
+  }
+
+  var inkRedrawQueued = false;
+  function queueInkRedraw() {
+    if (inkRedrawQueued) return;
+    inkRedrawQueued = true;
+    requestAnimationFrame(function () {
+      inkRedrawQueued = false;
+      drawAll();
+    });
+  }
+
+  function setupInkResizeObserver() {
+    if (!("ResizeObserver" in window)) return;
+
+    var sizes = new WeakMap();
+    var observer = new ResizeObserver(function (entries) {
+      var changed = false;
+
+      entries.forEach(function (entry) {
+        var size = Math.round(entry.contentRect.width) + "x" + Math.round(entry.contentRect.height);
+        if (sizes.get(entry.target) === size) return;
+        sizes.set(entry.target, size);
+        changed = true;
+      });
+
+      if (changed) queueInkRedraw();
+    });
+
+    document.querySelectorAll(".sk").forEach(function (el) {
+      observer.observe(el);
+    });
   }
 
   var rT;
@@ -496,6 +528,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     normalizeAppLinks();
     drawAll();
+    setupInkResizeObserver();
     // redraw once fonts are in (text metrics change element sizes)
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () { setTimeout(drawAll, 50); });
