@@ -1112,6 +1112,9 @@ footer { padding: 56px 0 40px; }
 .compare-detail-page .faq-list {
   max-width: none;
 }
+.compare-detail-page .faq-item {
+  background: var(--lilac-mist);
+}
 .compare-detail-page .comparison-section .faq-list {
   margin-top: 22px;
 }
