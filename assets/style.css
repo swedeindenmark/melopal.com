@@ -981,6 +981,203 @@ footer { padding: 56px 0 40px; }
   .comparison-section { padding: 24px 20px; }
 }
 
+/* Detailed comparison pages: same components, more homepage-like spacing */
+.compare-detail-page .page-hero {
+  padding: 82px 0 52px;
+}
+.compare-detail-page .page-hero h1 {
+  max-width: 16em;
+}
+.compare-detail-page .page-hero .lede {
+  max-width: 38em;
+}
+.compare-detail-page .comparison-article {
+  max-width: var(--maxw);
+  display: grid;
+  gap: 44px;
+}
+.compare-detail-page .comparison-article > * + * {
+  margin-top: 0;
+}
+.compare-detail-page .answer-box,
+.compare-detail-page .comparison-section {
+  border-radius: 26px;
+}
+.compare-detail-page .answer-box {
+  padding: 38px 42px;
+  background: var(--green-mist);
+}
+.compare-detail-page .answer-box h2 {
+  margin-bottom: 18px;
+}
+.compare-detail-page .answer-box ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.compare-detail-page .answer-box li {
+  min-height: 100%;
+  padding: 18px;
+  border: 1px solid var(--border-pale);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+}
+.compare-detail-page .comparison-section {
+  padding: 46px 48px;
+}
+.compare-detail-page .comparison-section h2 {
+  max-width: 16em;
+  margin-bottom: 18px;
+}
+.compare-detail-page .comparison-section > p,
+.compare-detail-page .comparison-section > ul,
+.compare-detail-page .comparison-section > ol {
+  max-width: 760px;
+}
+.compare-detail-page .comparison-section p {
+  color: var(--slate);
+  font-size: 1.04rem;
+}
+.compare-detail-page .comparison-section p + p {
+  margin-top: 14px;
+}
+.compare-detail-page .comparison-section ul {
+  margin: 18px 0 0;
+  padding-left: 1.2rem;
+}
+.compare-detail-page .comparison-section li + li {
+  margin-top: 0.5rem;
+}
+.compare-detail-page .comparison-section:nth-of-type(2),
+.compare-detail-page .comparison-section:nth-of-type(5) {
+  background: var(--lilac-mist);
+}
+.compare-detail-page .comparison-section:nth-of-type(6) {
+  background: var(--green-mist);
+}
+.compare-detail-page .compare-table-wrap {
+  margin-top: 24px;
+  overflow-x: visible;
+}
+.compare-detail-page .compare-table {
+  min-width: 0;
+  table-layout: fixed;
+  border-radius: var(--radius);
+}
+.compare-detail-page .compare-table thead th {
+  background: #f8fafc;
+}
+.compare-detail-page .compare-table tbody th {
+  width: 24%;
+  color: var(--ink);
+  font-size: 0.88rem;
+  letter-spacing: 0;
+  text-transform: none;
+  background: #fbfaf6;
+}
+.compare-detail-page .compare-table td {
+  color: var(--ink);
+  font-size: 0.96rem;
+}
+.compare-detail-page .compare-table td.yes,
+.compare-detail-page .compare-table td.partial,
+.compare-detail-page .compare-table td.no {
+  font-weight: 500;
+}
+.compare-detail-page .compare-table td.yes::before,
+.compare-detail-page .compare-table td.partial::before,
+.compare-detail-page .compare-table td.no::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 9px 1px 0;
+  border-radius: 999px;
+  background: currentColor;
+}
+.compare-detail-page .compare-table td.yes { color: var(--green); }
+.compare-detail-page .compare-table td.partial { color: var(--lilac-deep); }
+.compare-detail-page .compare-table td.no { color: var(--slate); }
+.compare-detail-page .faq-list {
+  max-width: none;
+}
+.compare-detail-page .comparison-section .faq-list {
+  margin-top: 22px;
+}
+.compare-detail-page .cta-band {
+  margin-top: 12px;
+}
+@media (max-width: 900px) {
+  .compare-detail-page .answer-box ul {
+    grid-template-columns: 1fr;
+  }
+  .compare-detail-page .comparison-section {
+    padding: 36px 28px;
+  }
+}
+@media (max-width: 760px) {
+  .compare-detail-page .page-hero {
+    padding: 58px 0 34px;
+  }
+  .compare-detail-page .comparison-article {
+    gap: 30px;
+  }
+  .compare-detail-page .answer-box,
+  .compare-detail-page .comparison-section {
+    padding: 28px 20px;
+    border-radius: var(--radius);
+  }
+  .compare-detail-page .compare-table-wrap {
+    overflow: visible;
+  }
+  .compare-detail-page .compare-table,
+  .compare-detail-page .compare-table thead,
+  .compare-detail-page .compare-table tbody,
+  .compare-detail-page .compare-table tr,
+  .compare-detail-page .compare-table th,
+  .compare-detail-page .compare-table td {
+    display: block;
+    width: 100%;
+  }
+  .compare-detail-page .compare-table thead {
+    display: none;
+  }
+  .compare-detail-page .compare-table tr {
+    border-bottom: 1px solid var(--border-pale);
+  }
+  .compare-detail-page .compare-table tr:last-child {
+    border-bottom: 0;
+  }
+  .compare-detail-page .compare-table tbody th {
+    width: 100%;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border-pale);
+    background: #f8fafc;
+  }
+  .compare-detail-page .compare-table td {
+    padding: 13px 16px;
+    border-bottom: 0;
+  }
+  .compare-detail-page .compare-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 0 5px;
+    border-radius: 0;
+    background: transparent;
+    color: var(--slate-light);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
 /* ---------- contact ---------- */
 .contact-layout {
   display: grid;
