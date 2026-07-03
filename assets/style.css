@@ -704,6 +704,7 @@ section { padding: 72px 0; position: relative; }
 
 /* ---------- CTA band ---------- */
 .cta-band { text-align: center; padding: 64px 40px; }
+.cta-band.green-band { background: var(--green-mist); }
 .cta-band h2 { max-width: 17em; margin: 16px auto 14px; }
 .cta-band p { color: var(--slate); max-width: 36em; margin: 0 auto 30px; font-size: 1.1rem; }
 .cta-band .hero-ctas { justify-content: center; }
