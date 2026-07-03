@@ -283,7 +283,10 @@
 
     if (el.tagName === "DETAILS" && !el.dataset.inkToggle) {
       el.dataset.inkToggle = "1";
-      el.addEventListener("toggle", function () { drawInk(el, idx); });
+      el.addEventListener("toggle", function () {
+        requestAnimationFrame(drawAll);
+        setTimeout(drawAll, 90);
+      });
     }
 
     var w = el.offsetWidth, h = el.offsetHeight;
