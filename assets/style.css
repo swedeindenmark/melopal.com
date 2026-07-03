@@ -1042,6 +1042,9 @@ footer { padding: 56px 0 40px; }
   color: var(--slate);
   font-size: 1.04rem;
 }
+.compare-detail-page .comparison-lede-section p {
+  font-size: 1.15rem;
+}
 .compare-detail-page .comparison-section p + p {
   margin-top: 14px;
 }
