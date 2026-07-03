@@ -1052,6 +1052,9 @@ footer { padding: 56px 0 40px; }
   margin: 18px 0 0;
   padding-left: 1.2rem;
 }
+.compare-detail-page .comparison-section ul + p {
+  margin-top: 18px;
+}
 .compare-detail-page .comparison-section li + li {
   margin-top: 0.5rem;
 }
