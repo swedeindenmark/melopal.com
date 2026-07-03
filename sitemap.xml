@@ -31,6 +31,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://melopal.com/compare/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://melopal.com/compare/forscore/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://melopal.com/compare/mobilesheets/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://melopal.com/compare/newzik/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://melopal.com/contact</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>yearly</changefreq>
