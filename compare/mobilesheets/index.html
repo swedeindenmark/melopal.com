@@ -42,17 +42,17 @@
         {
           "@type": "Question",
           "name": "Does Melopal replace MobileSheets?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. MobileSheets is a strong PDF sheet music manager. Melopal is built for teaching workflow, assignments and student practice." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. MobileSheets is a strong personal sheet music manager. Melopal is for assigning music and practice instructions to students." }
         },
         {
           "@type": "Question",
           "name": "Which app is better for Android sheet music?",
-          "acceptedAnswer": { "@type": "Answer", "text": "MobileSheets is a strong choice for managing and reading a personal sheet music library on Android. Melopal is better suited when the job is assigning music and instructions to students." }
+          "acceptedAnswer": { "@type": "Answer", "text": "For managing and reading your own sheet music on Android, MobileSheets is very strong. For student assignments and teacher-student workflow, Melopal is built for that specific job." }
         },
         {
           "@type": "Question",
           "name": "Can I use MobileSheets and Melopal together?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. A teacher can use MobileSheets for a personal performance library and Melopal for student assignments and practice workflow." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use MobileSheets for your own performance library and Melopal for student assignments and practice between lessons." }
         }
       ]
     }
@@ -60,7 +60,7 @@
 }
 </script>
 </head>
-<body>
+<body class="compare-detail-page">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -89,15 +89,15 @@
 <header class="page-hero">
   <div class="wrap" style="text-align:center">
     <span class="microlabel"><span class="lilac">Melopal vs MobileSheets</span></span>
-    <h1 style="margin-left:auto;margin-right:auto">MobileSheets organises your library. Melopal organises your teaching.</h1>
-    <p class="lede" style="margin:0 auto">MobileSheets is one of the strongest sheet music managers available, especially for Android users. Melopal solves a different problem: helping students receive the right music, instructions and recordings after each lesson.</p>
+    <h1 style="margin-left:auto;margin-right:auto">Melopal is built for teaching. MobileSheets is strong for Android sheet music.</h1>
+    <p class="lede" style="margin:0 auto"><strong>If you already use MobileSheets as your own music library, Melopal is designed for what happens next: assignments, instructions, recordings and student practice.</strong></p>
   </div>
 </header>
 
 <section style="padding-top:24px">
   <div class="wrap comparison-article">
     <div class="answer-box sk reveal">
-      <h2>Short answer</h2>
+      <h2>Melopal vs MobileSheets in short</h2>
       <ul>
         <li>Use MobileSheets if your main need is managing and reading your own PDF sheet music library.</li>
         <li>Use Melopal if your main need is sending assignments, instructions and recordings to students.</li>
@@ -105,11 +105,11 @@
       </ul>
     </div>
 
-    <section class="comparison-section sk reveal">
-      <h2>Who each app is for</h2>
-      <p>MobileSheets is built for musicians who want a powerful digital sheet music library. It is especially well known among Android users, and it gives performers deep tools for organising PDFs, editing metadata, building setlists and reading music from a tablet.</p>
-      <p>Melopal is built for teachers who need to turn lessons into practice. The library matters, but the real purpose is what happens with the music: which student receives it, what they should practise, what recording they should hear, and where they will find it again at home.</p>
-      <p>If your problem is "I need my own PDFs organised," MobileSheets may be the right tool. If your problem is "my students cannot find what I assigned," Melopal is aimed at that.</p>
+    <section class="comparison-section sk reveal comparison-lede-section">
+      <h2>When to use what app</h2>
+      <p><strong>Melopal</strong> is built around the 1-1 music lesson. It starts from a different question: how does the student know what to practice after today's lesson? That means the product is organised around students, assignments, attached instructions, recordings, reference links and a practice view students can actually find again.</p>
+      <p><strong>MobileSheets</strong> is built around the musician's own sheet music library. It is especially strong on Android, with mature tools for reading, annotating, organising PDFs, editing metadata and building setlists.</p>
+      <p>The difference is not that one app is good and the other is bad. They are aimed at different parts of a teacher's week.</p>
     </section>
 
     <section class="comparison-section sk reveal">
@@ -117,39 +117,68 @@
       <div class="compare-table-wrap">
         <table class="compare-table">
           <tbody>
-            <tr><th>Best suited for</th><td>Melopal: teaching, assignments and student practice</td><td>MobileSheets: personal PDF library management</td></tr>
-            <tr><th>Student workspace</th><td class="yes">Yes</td><td class="no">No</td></tr>
-            <tr><th>PDF library</th><td class="yes">Yes</td><td class="yes">Excellent</td></tr>
-            <tr><th>PDF annotation</th><td class="yes">Yes</td><td class="yes">Excellent</td></tr>
-            <tr><th>Assignments</th><td class="yes">Native feature</td><td class="no">No</td></tr>
-            <tr><th>Practice instructions</th><td class="yes">Attached to student assignments</td><td class="partial">Notes for your own use</td></tr>
-            <tr><th>Audio recordings</th><td class="yes">Attached to assignments</td><td class="partial">Limited</td></tr>
-            <tr><th>QR onboarding</th><td class="yes">Yes</td><td class="no">No</td></tr>
-            <tr><th>Parent-friendly</th><td class="yes">Yes</td><td class="no">Not designed for this</td></tr>
-            <tr><th>Android focus</th><td class="partial">Android app in the making, browser works now</td><td class="yes">Strong Android support</td></tr>
+            <tr><th>Best suited for</th><td data-label="Melopal">Melopal: one-to-one teaching and student assignments</td><td data-label="MobileSheets">MobileSheets: personal PDF library management</td></tr>
+            <tr><th>Student workspace</th><td class="yes" data-label="Melopal">Yes</td><td class="no" data-label="MobileSheets">No</td></tr>
+            <tr><th>PDF library</th><td class="yes" data-label="Melopal">Yes (cloud storage)</td><td class="yes" data-label="MobileSheets">Yes (on device)</td></tr>
+            <tr><th>PDF annotation</th><td class="yes" data-label="Melopal">Yes</td><td class="yes" data-label="MobileSheets">Excellent</td></tr>
+            <tr><th>Assignments</th><td class="yes" data-label="Melopal">Native feature</td><td class="no" data-label="MobileSheets">No</td></tr>
+            <tr><th>Practice instructions</th><td class="yes" data-label="Melopal">Attached to the student's assignment</td><td class="partial" data-label="MobileSheets">Personal notes and score markings</td></tr>
+            <tr><th>Audio recordings</th><td class="yes" data-label="Melopal">Attached to assignments</td><td class="partial" data-label="MobileSheets">Limited</td></tr>
+            <tr><th>QR onboarding</th><td class="yes" data-label="Melopal">Yes</td><td class="no" data-label="MobileSheets">No</td></tr>
+            <tr><th>Parent-friendly</th><td class="yes" data-label="Melopal">Yes</td><td class="no" data-label="MobileSheets">Not designed for this</td></tr>
+            <tr><th>Android focus</th><td class="partial" data-label="Melopal">Android app in the making, browser works now</td><td class="yes" data-label="MobileSheets">Strong Android support</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section class="comparison-section sk reveal">
-      <h2>A typical lesson using Melopal and MobileSheets</h2>
-      <ol class="workflow-list">
-        <li>Use MobileSheets to read from your own organised PDF library if that is your preferred stand.</li>
-        <li>Teach the lesson and decide what the student should practise next week.</li>
-        <li>Open Melopal and choose the student.</li>
-        <li>Attach the relevant sheet music from your Melopal teaching library.</li>
-        <li>Add written instructions with bars, tempo and what to listen for.</li>
-        <li>Add a reference recording or a short teacher recording.</li>
-        <li>Send the assignment before the student leaves.</li>
-        <li>The student opens one practice view instead of searching through email, chats or cloud folders.</li>
-      </ol>
-      <p>MobileSheets can be excellent for your own library. Melopal is there when the music needs to become a student assignment.</p>
+      <h2>A one-to-one teaching situation</h2>
+      <p>Here is the practical difference in a normal teacher-student lesson. The teacher has sheet music open, makes markings, gives spoken instructions, maybe adds a YouTube reference, and then needs the student to leave with everything in one place.</p>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Teaching task</th><th>Melopal</th><th>MobileSheets</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Teach from the sheet music</th>
+              <td class="yes" data-label="Melopal">Works, but Melopal is not trying to be the main performance stand.</td>
+              <td class="yes" data-label="MobileSheets">Strong. MobileSheets is built for reading from a personal tablet music library.</td>
+            </tr>
+            <tr>
+              <th>Assign sheet music to the student</th>
+              <td class="yes" data-label="Melopal">Choose the student, attach the piece, and create an assignment.</td>
+              <td class="partial" data-label="MobileSheets">You can export or share a PDF, but there is no simple teacher-to-student assignment path.</td>
+            </tr>
+            <tr>
+              <th>Make annotations in the sheet music</th>
+              <td class="yes" data-label="Melopal">You can add markings and decide what the student receives with the assignment.</td>
+              <td class="yes" data-label="MobileSheets">Strong. Annotations on your own scores are a core MobileSheets use case.</td>
+            </tr>
+            <tr>
+              <th>Add notes outside the PDF</th>
+              <td class="yes" data-label="Melopal">Practice instructions, YouTube or Spotify links, and recordings stay attached to the assignment.</td>
+              <td class="partial" data-label="MobileSheets">Usually handled somewhere else: a message, email, notebook, cloud note or spoken reminder.</td>
+            </tr>
+            <tr>
+              <th>Share PDF and notes with the student</th>
+              <td class="yes" data-label="Melopal">The student gets one assignment with the PDF, markings, instructions and recordings together.</td>
+              <td class="partial" data-label="MobileSheets">Often becomes email, Messenger, WhatsApp, Dropbox or another folder link. The PDF and notes can easily split apart.</td>
+            </tr>
+            <tr>
+              <th>Help the student find it later</th>
+              <td class="yes" data-label="Melopal">The student opens Melopal and sees the current practice work in one place.</td>
+              <td class="no" data-label="MobileSheets">Not really the job MobileSheets was designed to do.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="comparison-section sk reveal">
-      <h2>Where MobileSheets is stronger</h2>
-      <p>MobileSheets is a mature, feature-rich sheet music manager. If you mostly need a personal PDF library, these strengths are real.</p>
+      <h2>Where MobileSheets is strong</h2>
+      <p>MobileSheets is a mature, feature-rich sheet music manager. If your work is focused on managing and reading your own sheet music library, these strengths matter.</p>
       <ul>
         <li>Deep PDF library management</li>
         <li>Strong Android tablet support</li>
@@ -157,7 +186,6 @@
         <li>Setlists and performance-oriented workflows</li>
         <li>Annotation tools for a musician's own scores</li>
       </ul>
-      <p>Melopal is not trying to become the most advanced personal PDF manager. It is deliberately focused on music teaching and student practice.</p>
     </section>
 
     <section class="comparison-section sk reveal">
@@ -170,13 +198,13 @@
         <li>Parents can understand what was assigned without learning a teacher's file system.</li>
         <li>Teachers can see what is active for each student.</li>
       </ul>
-      <p>For a private teaching studio, the problem is rarely "I have no way to store PDFs." The problem is usually "I need every student to know exactly what to practise." That is where Melopal is different.</p>
+      <p>That is why Melopal is a better fit for the teaching workflow, while MobileSheets remains the better fit for managing a personal Android sheet music library. Melopal is not trying to beat MobileSheets at being MobileSheets.</p>
     </section>
 
     <section class="comparison-section sk reveal">
       <h2>Can you use both?</h2>
-      <p>Yes. If MobileSheets is already your personal library and you like it, there is no reason to stop using it for yourself.</p>
-      <p>Melopal can sit beside it as the teaching layer. Use MobileSheets to manage and read your own music. Use Melopal when you want to assign music to a student, add instructions, attach recordings and make the week of practice clear.</p>
+      <p>Absolutely. For many teachers, that is the most natural setup.</p>
+      <p>Use MobileSheets for your own library if it is already your trusted music stand. Use Melopal to create the assignment and send students the music, instructions and recordings in one place. You do not have to rebuild the way you teach just to make the student's week clearer.</p>
       <p>Students can use Melopal in the browser today, and the Android app is in the making.</p>
     </section>
 
@@ -206,13 +234,12 @@
       </div>
     </section>
 
-    <section class="cta-band sk reveal" data-double>
+    <section class="cta-band green-band sk reveal" data-double>
       <span class="pill pill-lilac">Try the teaching workflow</span>
-      <h2>Give students one place to practise from.</h2>
-      <p>Upload a few pieces, invite one student and send an assignment. Students and parents join for free.</p>
+      <h2>Keep your digital music stand. Make your music students practice more and enjoy music.</h2>
+      <p><strong>Import the music you already use, invite one student and send one assignment. Students and parents join for free.</strong></p>
       <div class="hero-ctas">
         <a class="btn btn-lilac btn-lg sk sk-pluck" data-jitter="1.2" href="https://app.melopal.com/?signup=teacher" target="_blank" rel="noopener">Try Melopal free <svg><use href="#i-arrow-right"/></svg></a>
-        <a class="btn btn-ghost btn-lg" href="/students">See the student side</a>
       </div>
     </section>
   </div>
