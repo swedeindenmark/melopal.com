@@ -746,6 +746,107 @@ footer { padding: 56px 0 40px; }
   .staff-divider .sd-note, .staff-divider .stem { transition: none; }
 }
 
+/* ---------- email signup capture ---------- */
+.signup-open { overflow: hidden; }
+.signup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(14, 23, 43, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.signup-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.signup-modal {
+  position: relative;
+  width: min(100%, 520px);
+  padding: 34px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 80px rgba(14, 23, 43, 0.22);
+}
+.signup-modal h2 {
+  margin: 16px 0 10px;
+  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  line-height: 1.08;
+}
+.signup-modal p {
+  color: var(--slate);
+}
+.signup-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--slate);
+  font: inherit;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.signup-close:hover { color: var(--ink); }
+.signup-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-top: 22px;
+}
+.signup-form input[type="email"] {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border-pale);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.signup-form input[type="email"]:focus {
+  outline: 2px solid var(--lilac-soft);
+  outline-offset: 2px;
+}
+.signup-form .btn {
+  white-space: nowrap;
+}
+.signup-form .btn:disabled {
+  opacity: 0.68;
+  cursor: wait;
+}
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.signup-note {
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+.signup-status {
+  min-height: 1.4em;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+@media (max-width: 620px) {
+  .signup-modal { padding: 28px 22px; }
+  .signup-form { grid-template-columns: 1fr; }
+  .signup-form .btn { justify-content: center; }
+}
+
 /* ---------- reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }

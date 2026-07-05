@@ -36,14 +36,9 @@ Any static server works, e.g.:
 npx http-server -p 4173 .
 ```
 
-## Deploy (Vercel)
+## Deploy
 
-```bash
-npx vercel deploy
-```
-
-`vercel.json` enables clean URLs (`/ipad` instead of `/ipad.html`). The in-page links use
-`.html` so the site also works from any plain static host.
+The site is deployed with Cloudflare Pages from the GitHub `main` branch.
 
 ## Things you may want to change
 
@@ -52,5 +47,10 @@ npx vercel deploy
   for the App Store link.
 - **Contact form:** `/contact` posts to `/api/contact`. Configure `RESEND_API_KEY`,
   `CONTACT_TO`, and `CONTACT_FROM` in Cloudflare Pages environment variables.
+- **Email signup form:** exit-intent signup posts to `/api/subscribe`. Create a
+  Cloudflare D1 database and bind it to the Pages project as `EMAIL_SIGNUPS_DB`.
+  The schema lives in `migrations/0001_email_subscribers.sql`, and the Function
+  also creates the table if it is missing. The table includes export fields for
+  later automation into an email marketing platform.
 - **Pricing copy:** `pricing.html` promises "students never pay" and a future simple
   teacher plan - adjust when real pricing is decided.

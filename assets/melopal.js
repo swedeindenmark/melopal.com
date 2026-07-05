@@ -525,6 +525,152 @@
     });
   }
 
+  function setupEmailSignupCapture() {
+    var forceSignup = new URLSearchParams(location.search).get("signup") === "1";
+    if (!forceSignup && storageGet("melopal_email_signup_done") === "1") return;
+
+    var dismissedAt = 0;
+    dismissedAt = parseInt(storageGet("melopal_email_signup_dismissed_at") || "0", 10);
+    if (!forceSignup && dismissedAt && Date.now() - dismissedAt < 1000 * 60 * 60 * 24 * 14) return;
+
+    var shown = false;
+    var readyAt = forceSignup ? Date.now() : Date.now() + 2500;
+
+    function show() {
+      if (shown || Date.now() < readyAt) return;
+      shown = true;
+
+      var overlay = document.createElement("div");
+      overlay.className = "signup-overlay";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      overlay.setAttribute("aria-labelledby", "signup-title");
+      overlay.innerHTML =
+        '<div class="signup-modal sk" data-jitter="1.1" data-stroke="1.7">' +
+          '<button class="signup-close" type="button" aria-label="Close">&times;</button>' +
+          '<span class="pill pill-lilac">For music teachers</span>' +
+          '<h2 id="signup-title">Don&apos;t miss the teaching workflow Melopal is building.</h2>' +
+          '<p>Join if you teach one-to-one music lessons and want students to leave with the right sheet music, notes and recordings in one place. Get useful product updates and teaching workflow ideas as Melopal grows.</p>' +
+          '<form class="signup-form" action="/api/subscribe" method="post" data-signup-form>' +
+            '<input type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>' +
+            '<input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+            '<input type="hidden" name="sourcePath" value="' + escapeAttr(location.pathname) + '">' +
+            '<input type="hidden" name="sourceUrl" value="' + escapeAttr(location.href) + '">' +
+            '<input type="hidden" name="consentText" value="Send me Melopal product updates and teaching workflow ideas.">' +
+            '<button class="btn btn-lilac sk sk-pluck" data-jitter="1" type="submit">Get Melopal updates <svg><use href="#i-arrow-right"/></svg></button>' +
+          '</form>' +
+          '<p class="signup-note">For music teachers. No spam. Unsubscribe anytime. Your email is stored by Melopal, not sold or shared.</p>' +
+          '<p class="signup-status" data-signup-status aria-live="polite"></p>' +
+        '</div>';
+
+      document.body.appendChild(overlay);
+      document.body.classList.add("signup-open");
+      setTimeout(function () {
+        overlay.classList.add("is-visible");
+        drawAll();
+        var input = overlay.querySelector("input[type='email']");
+        if (input && window.matchMedia("(min-width: 760px)").matches) input.focus();
+      }, 20);
+
+      function dismiss() {
+        storageSet("melopal_email_signup_dismissed_at", String(Date.now()));
+        overlay.classList.remove("is-visible");
+        document.body.classList.remove("signup-open");
+        setTimeout(function () { overlay.remove(); }, 180);
+      }
+
+      overlay.querySelector(".signup-close").addEventListener("click", dismiss);
+      overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) dismiss();
+      });
+      document.addEventListener("keydown", function onKeydown(event) {
+        if (event.key !== "Escape" || !document.body.contains(overlay)) return;
+        document.removeEventListener("keydown", onKeydown);
+        dismiss();
+      });
+
+      setupSignupForm(overlay);
+    }
+
+    function maybeShowForMouse(event) {
+      if (event.clientY <= 8) show();
+    }
+
+    document.addEventListener("mouseout", maybeShowForMouse);
+
+    if (forceSignup) {
+      setTimeout(show, 400);
+    }
+
+    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+      setTimeout(function () {
+        if (window.scrollY > document.documentElement.scrollHeight * 0.35) show();
+      }, 28000);
+    }
+  }
+
+  function setupSignupForm(root) {
+    var form = root.querySelector("[data-signup-form]");
+    if (!form) return;
+
+    var status = root.querySelector("[data-signup-status]");
+    var button = form.querySelector("button[type='submit']");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (status) status.textContent = "Saving...";
+      if (button) button.disabled = true;
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      }).then(function (response) {
+        return response.json().catch(function () {
+          return { ok: false, error: "Could not save your email right now." };
+        }).then(function (body) {
+          if (!response.ok || !body.ok) throw new Error(body.error || "Could not save your email right now.");
+          storageSet("melopal_email_signup_done", "1");
+          form.reset();
+          if (status) status.textContent = "Done. Thanks for joining the list.";
+          setTimeout(function () {
+            root.classList.remove("is-visible");
+            document.body.classList.remove("signup-open");
+            setTimeout(function () { root.remove(); }, 180);
+          }, 1300);
+        });
+      }).catch(function (error) {
+        if (status) status.textContent = error.message || "Could not save your email right now.";
+      }).finally(function () {
+        if (button) button.disabled = false;
+      });
+    });
+  }
+
+  function escapeAttr(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function storageGet(key) {
+    try {
+      return window.localStorage ? localStorage.getItem(key) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storageSet(key, value) {
+    try {
+      if (window.localStorage) localStorage.setItem(key, value);
+    } catch (error) {
+      // Storage can be blocked by privacy settings. The form should still work.
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     normalizeAppLinks();
     drawAll();
@@ -540,6 +686,7 @@
     setupPricingCurrency();
     setupTeacherShare();
     setupContactForm();
+    setupEmailSignupCapture();
     var y = document.querySelector("[data-year]");
     if (y) y.textContent = new Date().getFullYear();
   });
