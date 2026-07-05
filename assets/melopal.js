@@ -549,7 +549,7 @@
         '<div class="signup-modal sk" data-jitter="1.1" data-stroke="1.7">' +
           '<button class="signup-close" type="button" aria-label="Close">&times;</button>' +
           '<span class="pill pill-lilac">For music teachers</span>' +
-          '<h2 id="signup-title">Don&apos;t miss the teaching workflow Melopal is building.</h2>' +
+          '<h2 id="signup-title">Do your students forget to practice &mdash; or forget what to practice?</h2>' +
           '<p>Join if you teach one-to-one music lessons and want students to leave with the right sheet music, notes and recordings in one place. Get useful product updates and teaching workflow ideas as Melopal grows.</p>' +
           '<form class="signup-form" action="/api/subscribe" method="post" data-signup-form>' +
             '<input type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>' +
