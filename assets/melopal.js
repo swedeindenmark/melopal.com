@@ -531,7 +531,7 @@
 
     var dismissedAt = 0;
     dismissedAt = parseInt(storageGet("melopal_email_signup_dismissed_at") || "0", 10);
-    if (!forceSignup && dismissedAt && Date.now() - dismissedAt < 1000 * 60 * 60 * 24 * 14) return;
+    if (!forceSignup && dismissedAt && Date.now() - dismissedAt < 1000 * 60 * 60 * 24 * 7) return;
 
     var shown = false;
     var readyAt = forceSignup ? Date.now() : Date.now() + 2500;
@@ -605,7 +605,7 @@
     if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       setTimeout(function () {
         if (window.scrollY > document.documentElement.scrollHeight * 0.35) show();
-      }, 28000);
+      }, 15000);
     }
   }
 
