@@ -94,7 +94,7 @@
   function footerSignupHTML() {
     return '' +
       '<form class="footer-signup" action="/api/subscribe" method="post" data-signup-form>' +
-        '<label for="footer-signup-email">Get Melopal updates and help your students practice more.</label>' +
+        '<label for="footer-signup-email">Get Melopal updates and help your students practice smarter.</label>' +
         '<div class="footer-signup-row">' +
           '<input id="footer-signup-email" type="email" name="email" autocomplete="email" placeholder="Email address" required>' +
           '<button class="btn btn-lilac" type="submit">Join</button>' +
