@@ -719,14 +719,29 @@ footer { padding: 56px 0 40px; }
   justify-content: space-between;
   align-items: flex-start;
 }
+.foot > div:first-child {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 26em) minmax(280px, 360px);
+  grid-template-areas:
+    "brand signup"
+    "copy signup";
+  gap: 8px 32px;
+  align-items: start;
+}
 .foot .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--lilac); font-size: 1.1rem; }
+.foot > div:first-child .brand { grid-area: brand; }
+.foot > div:first-child > .muted { grid-area: copy; }
 .foot nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .foot nav a { color: var(--slate); font-size: 0.95rem; }
 .foot nav a:hover { color: var(--ink); }
 .foot .legal { width: 100%; margin-top: 26px; color: var(--slate-light); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 .footer-signup {
+  grid-area: signup;
+  justify-self: end;
+  width: 100%;
   max-width: 360px;
-  margin-top: 18px;
+  margin-top: 0;
 }
 .footer-signup label {
   display: block;
@@ -771,6 +786,12 @@ footer { padding: 56px 0 40px; }
   font-weight: 600;
 }
 @media (max-width: 520px) {
+  .foot > div:first-child {
+    display: block;
+  }
+  .footer-signup {
+    margin-top: 18px;
+  }
   .footer-signup-row { flex-direction: column; }
   .footer-signup .btn { justify-content: center; }
 }
