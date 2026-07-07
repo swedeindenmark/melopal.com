@@ -71,6 +71,7 @@
         '<div>' +
         '<div class="brand"><img class="logo-mark" src="assets/logo.png" alt="Melopal logo"> Melopal</div>' +
         '<p class="muted small mt-8" style="max-width:26em">Built for music teachers by a music teacher who got tired of sending sheet music into the void.</p>' +
+        footerSignupHTML() +
         '</div>' +
         '<nav aria-label="Footer">' +
         '<a href="/#how">How it works</a>' +
@@ -88,6 +89,20 @@
         '</div>' +
         '</div></footer>';
     }
+  }
+
+  function footerSignupHTML() {
+    return '' +
+      '<form class="footer-signup" action="/api/subscribe" method="post" data-signup-form>' +
+        '<label for="footer-signup-email">Get Melopal updates for teachers who want students to remember what to practice.</label>' +
+        '<div class="footer-signup-row">' +
+          '<input id="footer-signup-email" type="email" name="email" autocomplete="email" placeholder="Email address" required>' +
+          '<button class="btn btn-lilac" type="submit">Join</button>' +
+        '</div>' +
+        '<input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+        '<input type="hidden" name="consentText" value="Send me Melopal product updates and teaching workflow ideas.">' +
+        '<p class="footer-signup-status" data-signup-status aria-live="polite"></p>' +
+      '</form>';
   }
 
   function normalizeAppLinks() {
@@ -589,7 +604,7 @@
         dismiss();
       });
 
-      setupSignupForm(overlay);
+      setupSignupForms(overlay);
     }
 
     function maybeShowForMouse(event) {
@@ -609,40 +624,51 @@
     }
   }
 
-  function setupSignupForm(root) {
-    var form = root.querySelector("[data-signup-form]");
-    if (!form) return;
+  function setupSignupForms(root) {
+    root.querySelectorAll("[data-signup-form]").forEach(function (form) {
+      if (form.dataset.signupBound) return;
+      form.dataset.signupBound = "1";
 
-    var status = root.querySelector("[data-signup-status]");
-    var button = form.querySelector("button[type='submit']");
+      var status = form.querySelector("[data-signup-status]") || root.querySelector("[data-signup-status]");
+      var button = form.querySelector("button[type='submit']");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (status) status.textContent = "Saving...";
-      if (button) button.disabled = true;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (status) status.textContent = "Saving...";
+        if (button) button.disabled = true;
 
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
-      }).then(function (response) {
-        return response.json().catch(function () {
-          return { ok: false, error: "Could not save your email right now." };
-        }).then(function (body) {
-          if (!response.ok || !body.ok) throw new Error(body.error || "Could not save your email right now.");
-          storageSet("melopal_email_signup_done", "1");
-          form.reset();
-          if (status) status.textContent = "Done. Thanks for joining the list.";
-          setTimeout(function () {
-            root.classList.remove("is-visible");
-            document.body.classList.remove("signup-open");
-            setTimeout(function () { root.remove(); }, 180);
-          }, 1300);
+        var data = new FormData(form);
+        data.set("sourcePath", location.pathname);
+        data.set("sourceUrl", location.href);
+        if (!data.get("consentText")) {
+          data.set("consentText", "Send me Melopal product updates and teaching workflow ideas.");
+        }
+
+        fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" }
+        }).then(function (response) {
+          return response.json().catch(function () {
+            return { ok: false, error: "Could not save your email right now." };
+          }).then(function (body) {
+            if (!response.ok || !body.ok) throw new Error(body.error || "Could not save your email right now.");
+            storageSet("melopal_email_signup_done", "1");
+            form.reset();
+            if (status) status.textContent = "Done. Thanks for joining the list.";
+            if (root.classList && root.classList.contains("signup-overlay")) {
+              setTimeout(function () {
+                root.classList.remove("is-visible");
+                document.body.classList.remove("signup-open");
+                setTimeout(function () { root.remove(); }, 180);
+              }, 1300);
+            }
+          });
+        }).catch(function (error) {
+          if (status) status.textContent = error.message || "Could not save your email right now.";
+        }).finally(function () {
+          if (button) button.disabled = false;
         });
-      }).catch(function (error) {
-        if (status) status.textContent = error.message || "Could not save your email right now.";
-      }).finally(function () {
-        if (button) button.disabled = false;
       });
     });
   }
@@ -687,6 +713,7 @@
     setupTeacherShare();
     setupContactForm();
     setupEmailSignupCapture();
+    setupSignupForms(document);
     var y = document.querySelector("[data-year]");
     if (y) y.textContent = new Date().getFullYear();
   });

@@ -724,6 +724,56 @@ footer { padding: 56px 0 40px; }
 .foot nav a { color: var(--slate); font-size: 0.95rem; }
 .foot nav a:hover { color: var(--ink); }
 .foot .legal { width: 100%; margin-top: 26px; color: var(--slate-light); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.footer-signup {
+  max-width: 360px;
+  margin-top: 18px;
+}
+.footer-signup label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--slate);
+  font-size: 0.92rem;
+}
+.footer-signup-row {
+  display: flex;
+  gap: 8px;
+}
+.footer-signup input[type="email"] {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border-pale);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+}
+.footer-signup input[type="email"]:focus {
+  outline: 2px solid var(--lilac-soft);
+  outline-offset: 2px;
+}
+.footer-signup .btn {
+  padding: 9px 14px;
+  min-height: 0;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+.footer-signup .btn:disabled {
+  opacity: 0.68;
+  cursor: wait;
+}
+.footer-signup-status {
+  min-height: 1.2em;
+  margin-top: 7px;
+  color: var(--slate);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+@media (max-width: 520px) {
+  .footer-signup-row { flex-direction: column; }
+  .footer-signup .btn { justify-content: center; }
+}
 
 /* ---------- staff divider doodle ---------- */
 .staff-divider {
