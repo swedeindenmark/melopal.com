@@ -564,8 +564,7 @@
         '<div class="signup-modal sk" data-jitter="1.1" data-stroke="1.7">' +
           '<button class="signup-close" type="button" aria-label="Close">&times;</button>' +
           '<span class="pill pill-lilac">For music teachers</span>' +
-          '<h2 id="signup-title">Do your students forget to practice &mdash; or forget what to practice?</h2>' +
-          '<p>Join if you teach one-to-one music lessons and want students to leave with the right sheet music, notes and recordings in one place. Get useful product updates and teaching workflow ideas as Melopal grows.</p>' +
+          '<h2 id="signup-title">Make your students practice more. And smarter.</h2>' +
           '<form class="signup-form" action="/api/subscribe" method="post" data-signup-form>' +
             '<input type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>' +
             '<input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
@@ -574,6 +573,7 @@
             '<input type="hidden" name="consentText" value="Send me Melopal product updates and teaching workflow ideas.">' +
             '<button class="btn btn-lilac sk sk-pluck" data-jitter="1" type="submit">Get Melopal updates <svg><use href="#i-arrow-right"/></svg></button>' +
           '</form>' +
+          '<p>Do you teach music one-to-one? Get useful product updates and teaching workflow ideas as Melopal grows.</p>' +
           '<p class="signup-note">For music teachers. No spam. Unsubscribe anytime. Your email is stored by Melopal, not sold or shared.</p>' +
           '<p class="signup-status" data-signup-status aria-live="polite"></p>' +
         '</div>';
