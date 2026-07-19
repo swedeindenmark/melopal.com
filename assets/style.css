@@ -872,7 +872,7 @@ footer { padding: 56px 0 40px; }
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 12px;
-  margin-top: 22px;
+  margin: 22px 0 20px;
 }
 .signup-form input[type="email"] {
   width: 100%;
@@ -901,6 +901,9 @@ footer { padding: 56px 0 40px; }
   width: 1px;
   height: 1px;
   opacity: 0;
+}
+.signup-copy {
+  font-weight: 700;
 }
 .signup-note {
   margin-top: 14px;

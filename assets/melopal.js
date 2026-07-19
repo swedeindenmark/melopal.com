@@ -573,8 +573,8 @@
             '<input type="hidden" name="consentText" value="Send me Melopal product updates and teaching workflow ideas.">' +
             '<button class="btn btn-lilac sk sk-pluck" data-jitter="1" type="submit">Get Melopal updates <svg><use href="#i-arrow-right"/></svg></button>' +
           '</form>' +
-          '<p>Do you teach music one-to-one? Get useful product updates and teaching workflow ideas as Melopal grows.</p>' +
-          '<p class="signup-note">For music teachers. No spam. Unsubscribe anytime. Your email is stored by Melopal, not sold or shared.</p>' +
+          '<p class="signup-copy">Do you teach music one-to-one? Get useful product updates and teaching workflow ideas as Melopal grows.</p>' +
+          '<p class="signup-note">Unsubscribe anytime. Your email is stored safely by Melopal, and not shared with anyone.</p>' +
           '<p class="signup-status" data-signup-status aria-live="polite"></p>' +
         '</div>';
 
