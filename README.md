@@ -42,9 +42,8 @@ The site is deployed with Cloudflare Pages from the GitHub `main` branch.
 
 ## Things you may want to change
 
-- **CTA target:** all "Try Melopal free" / "Log in" buttons point to
-  `https://app.melopal.com`. `assets/melopal.js` has an `IOS_APP_URL` placeholder
-  for the App Store link.
+- **CTA target:** "Try Melopal free" / "Log in" buttons route iOS visitors to
+  the App Store and other visitors to `https://app.melopal.com`.
 - **Contact form:** `/contact` posts to `/api/contact`. Configure `RESEND_API_KEY`,
   `CONTACT_TO`, and `CONTACT_FROM` in Cloudflare Pages environment variables.
 - **Email signup form:** exit-intent signup posts to `/api/subscribe`. Create a

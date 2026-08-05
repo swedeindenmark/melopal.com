@@ -14,9 +14,7 @@
   /* ---------- shared header & footer (single source of truth) ---------- */
 
   var WEB_APP_URL = "https://app.melopal.com";
-  // Paste the App Store URL here when you want iOS visitors routed there.
-  // Non-iOS visitors always open the web app.
-  var IOS_APP_URL = "";
+  var IOS_APP_URL = "https://apps.apple.com/us/app/melopal-teach/id6781260872";
   var CONTACT = "/contact";
   var NAV_LINKS = [
     { href: "/#how", label: "How it works" },
@@ -79,7 +77,9 @@
         '<a href="/students">For students</a>' +
         '<a href="/pricing">Pricing</a>' +
         '<a href="/faq">FAQ</a>' +
-        '<a href="' + appUrl() + '" target="_blank" rel="noopener">Open the app</a>' +
+        '<a href="' + IOS_APP_URL + '" target="_blank" rel="noopener">Melopal for iOS</a>' +
+        '<a href="' + WEB_APP_URL + '/" target="_blank" rel="noopener">Melopal browser app</a>' +
+        '<span class="footer-disabled">Melopal for Android (coming soon)</span>' +
         '<a href="/privacy-policy/">Privacy Policy</a>' +
         '<a href="' + CONTACT + '">Contact</a>' +
         '</nav>' +
@@ -106,8 +106,15 @@
   }
 
   function normalizeAppLinks() {
-    document.querySelectorAll('a[href="https://assignmus.vercel.app"], a[href="' + WEB_APP_URL + '"], a[data-app-link]').forEach(function (link) {
-      link.setAttribute("href", appUrl());
+    document.querySelectorAll("a").forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      var label = (link.textContent || "").trim();
+      var isLegacyAppLink = href === "https://assignmus.vercel.app" || href === WEB_APP_URL;
+      var isFreeSignupLink = href.indexOf(WEB_APP_URL + "/?signup=teacher") === 0
+        && (label.indexOf("Try Melopal free") === 0 || label.indexOf("Start free now") === 0);
+      if (isLegacyAppLink || isFreeSignupLink || link.hasAttribute("data-app-link")) {
+        link.setAttribute("href", appUrl());
+      }
     });
   }
 
