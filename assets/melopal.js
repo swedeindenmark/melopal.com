@@ -76,6 +76,7 @@
         '<a href="/ipad">iPad teachers</a>' +
         '<a href="/students">For students</a>' +
         '<a href="/pricing">Pricing</a>' +
+        '<a href="/compare/">Compare</a>' +
         '<a href="/faq">FAQ</a>' +
         '<a href="' + IOS_APP_URL + '" target="_blank" rel="noopener">Melopal for iOS</a>' +
         '<a href="' + WEB_APP_URL + '/" target="_blank" rel="noopener">Melopal browser app</a>' +
