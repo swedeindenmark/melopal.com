@@ -599,6 +599,9 @@ section { padding: 72px 0; position: relative; }
   max-width: 520px;
   padding-top: 38px;
 }
+.chaos-intro-title {
+  padding-top: 38px;
+}
 .chaos-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -607,6 +610,7 @@ section { padding: 72px 0; position: relative; }
 }
 @media (max-width: 920px) {
   .chaos-intro { display: block; }
+  .chaos-intro-title { padding-top: 0; }
   .chaos-intro-copy {
     max-width: 640px;
     padding-top: 0;
