@@ -810,6 +810,8 @@ section { padding: 72px 0; position: relative; }
   }
   .index-feature-media {
     width: min(100%, 720px);
+    min-height: 0;
+    aspect-ratio: 39 / 50;
     margin: 0 auto;
     transform: none;
   }
@@ -829,6 +831,7 @@ section { padding: 72px 0; position: relative; }
   }
   .index-feature-media {
     min-height: 0;
+    aspect-ratio: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
